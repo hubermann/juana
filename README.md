@@ -1,4 +1,4 @@
-juana
+Juana
 =====
 
-Generador de backend code
+Backend code generator.
