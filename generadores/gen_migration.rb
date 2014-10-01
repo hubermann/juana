@@ -13,6 +13,11 @@ class Migration_Create_#{@plural.capitalize} extends CI_Migration
                     \"unsigned\"            =>        TRUE,
                     \"auto_increment\"    =>        TRUE,
  
+                ),
+                \"status\"        =>        array(
+                    \"type\"                =>        \"INT\",
+                    \"constraint\"          =>        1,
+ 
                 ),"
 
 @campos_clean.each do |campo|

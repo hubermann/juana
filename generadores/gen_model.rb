@@ -9,7 +9,7 @@ class #{@singular.capitalize} extends CI_Model{
 	}
 	//all
 	public function get_records($num,$start){
-		$this->db->select()->from('"+@plural+"')->order_by('id','ASC')->limit($num,$start);
+		$this->db->select()->from('"+@plural+"')->where('status', 0)->order_by('id','ASC')->limit($num,$start);
 		return $this->db->get();
 
 	}
@@ -25,7 +25,7 @@ class #{@singular.capitalize} extends CI_Model{
 	
 	//total rows
 	public function count_rows(){ 
-		$this->db->select('id')->from('"+@plural+"');
+		$this->db->select('id')->where('status', 0)->from('"+@plural+"');
 		$query = $this->db->get();
 		return $query->num_rows();
 	}

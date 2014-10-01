@@ -239,6 +239,26 @@ controller_file <<");
 }
 
 
+public function soft_delete(){
+	// 0 Active
+	// 1 Deleted
+	// 2 Draft
+	$id_"+@singular+" = $this->input->post('id"+@singular+"');
+	if($id_"+@singular+" > 0 && $id_"+@singular+" != ""){
+		$edited"+@singular+" = array(  
+		'status' => 1,
+		);
+		$this->"+@singular+"->update_record($id_"+@singular+", $edited"+@singular+");
+		$retorno = array('status' => 1);
+		echo json_encode($retorno);
+	}else{
+		$retorno = array('status' => 0);
+		echo json_encode($retorno);
+	}
+}
+
+
+
 //delete comfirm		
 public function delete_comfirm(){
 	$this->load->helper('form');

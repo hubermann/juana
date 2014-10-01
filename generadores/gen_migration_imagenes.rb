@@ -21,6 +21,11 @@ class Migration_Create_Imagenes_#{@plural.capitalize} extends CI_Migration
                     \"type\"                =>        \"TEXT\",
                     \"constraint\"        	=>        100,
                 ),
+                \"status\"            =>        array(
+                    \"type\"                =>        \"INT\",
+                    \"constraint\"          =>        1,
+                ),
+
             )
         );
  
