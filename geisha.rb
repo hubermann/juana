@@ -145,6 +145,9 @@ create_folder("../application/controllers/control")
 #carpeta backend
 create_folder("../application/views/control")
 
+#carpeta backend includes
+create_folder("../application/views/control/includes")
+
 #gen login for backend
 load "generadores/gen_login_v.rb"
 #gen modal view for login 
