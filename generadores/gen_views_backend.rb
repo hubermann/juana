@@ -55,7 +55,43 @@ all_file <<	"
 <ul class=\"pagination pagination-small pagination-centered\">
 <?php echo $pagination_links;  ?>
 </ul>
-</div>"
+</div>
+
+
+<script type=\"text/javascript\">
+	function confirm_delete(id){
+		var titulo = $('#titulo'+id).html();
+            bootbox.confirm(\"<h4 >Seguro desea eliminar el evento: \"+titulo+\"</h4>\", function(result) {
+                if(result==true){
+                    //soft delete
+
+					var datos = {idevento:id}
+                    $.ajax({
+                        url: \"<?php echo base_url('control/eventos/soft_delete'); ?>\",
+                        type: \"post\",
+                        dataType: \"json\",
+                        data: datos,
+                        success: function(data){
+                            //alert(\"success\"+data);
+
+                            if(data[\"status\"] == 1){
+                            	
+                            	//$('#avisos').html('<div class=\"alert alert-success\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Evento eliminado!</div>');
+                            	$('#row'+id).hide('slow');
+                            }
+
+                            
+                        },
+                        error:function(){
+                            alert(\"failure\");
+                           
+                        }
+                    });
+                }
+                window.setTimeout(function() { $(\".alert-success\").alert('close'); }, 4000);
+        });
+        }
+</script>"
 
 
 

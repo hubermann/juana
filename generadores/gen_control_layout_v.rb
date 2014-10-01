@@ -365,6 +365,17 @@ file_control_layout = "<!DOCTYPE html>
                 });
             });
         </script>
+        <script>
+        window.setTimeout(function() { $(\".alert-success\").alert('close'); }, 4000);
+        window.setTimeout(function() { $(\".alert-warning\").alert('close'); }, 4000);
+        window.setTimeout(function() { $(\".alert-danger\").alert('close'); }, 4000);
+        $('#fecha_desde').datepicker({
+          format: 'dd-mm-yyyy',
+        });
+        $('#fecha_hasta').datepicker({
+          format: 'dd-mm-yyyy',
+        });
+        </script>
 
     </body>
 </html>
