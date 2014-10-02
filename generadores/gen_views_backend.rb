@@ -9,7 +9,7 @@ if(count($query->result())){
 
 		/* $nombre_categoria = $this->categoria->traer_nombre($row->categoria_id); */
 
-		echo '<tr>';\n"
+		echo '<tr id=\"row'.$row->id.'\">';\n"
 
 @campos_clean.each do |campo|
 	all_file << "echo '<td>'.$row->#{campo}.' </td>';\n"
@@ -30,7 +30,7 @@ all_file <<	"
 
 		echo '<td> 
 		<div class=\"btn-group\">
-		<a class=\"btn btn-small\" href=\"'.base_url('control/#{@plural}/delete_comfirm/'.$row->id.'').'\"><i class=\"fa fa-trash-o\"></i></a>
+		<a class=\"btn btn-small\" onclick=\"confirm_delete('.$row->id.')\" href=\"'.base_url('control/#{@plural}/delete_comfirm/'.$row->id.'').'\"><i class=\"fa fa-trash-o\"></i></a>
 		<a class=\"btn btn-small\" href=\"'.base_url('control/#{@plural}/editar/'.$row->id.'').'\"><i class=\"fa fa-edit\"></i></a>"
 
 if @imagenes == "2"
@@ -512,7 +512,7 @@ end
 end
 
 
-menu_admin = "
+menu_admin_file = "
 <ul class=\"sidebar-menu\">
 <?php  
 ######## eventos
@@ -539,7 +539,7 @@ if($this->uri->segment(2)==\"eventos\"){
     </li>
 	';
 }
-
+?>
 
 <li class=\"treeview\">
 <a href=\"#\">
@@ -553,12 +553,13 @@ if($this->uri->segment(2)==\"eventos\"){
 </ul> 
 </li>
     
-</ul>
-"
+  </ul>
+  "
 
-file_menu_admin = File.new("../application/views/control/includes/menu_admin.php", "w+")
-if file_menu_admin
-   file_menu_admin.syswrite(menu_admin_file)
-else
-   puts "Unable to open file! (menu admin)"
-end
+
+  file_menu_admin = File.new("../application/views/control/includes/menu_admin.php", "w+")
+  if file_menu_admin
+     file_menu_admin.syswrite(menu_admin_file)
+  else
+     puts "Unable to open file! (menu admin)"
+  end

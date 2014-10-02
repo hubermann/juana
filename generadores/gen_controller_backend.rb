@@ -87,8 +87,9 @@ public function create(){
 end
 
 controller_file <<"
-	
-	if ($this->form_validation->run() === FALSE){
+	$this->form_validation->set_message('required','El campo %s es requerido.');
+
+if ($this->form_validation->run() === FALSE){
 
 		$this->load->helper('form');
 		$data['title'] = 'Nuevo "+@plural+"';
@@ -244,7 +245,7 @@ public function soft_delete(){
 	// 1 Deleted
 	// 2 Draft
 	$id_"+@singular+" = $this->input->post('id"+@singular+"');
-	if($id_"+@singular+" > 0 && $id_"+@singular+" != ""){
+	if($id_"+@singular+" > 0 && $id_"+@singular+" != \"\"){
 		$edited"+@singular+" = array(  
 		'status' => 1,
 		);
