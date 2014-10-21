@@ -135,6 +135,8 @@ load "generadores/gen_dashboard_c.rb"
 
 #gen model usuarios
 load "generadores/gen_usuarios_m.rb"
+load "generadores/gen_permisos_m.rb"
+load "generadores/gen_roles_m.rb"
 
 #gen migration useradmin
 load "generadores/gen_migration_usuarios.rb"
