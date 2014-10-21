@@ -6,7 +6,9 @@ class "+@plural+" extends CI_Controller{
 public function __construct(){
 
 parent::__construct();
+$this->load->model('permiso');
 $this->load->model('"+@singular+"');"
+
 
 if @imagenes == "2"
 	controller_file << "$this->load->model('imagenes_"+@singular+"');"
@@ -26,6 +28,7 @@ redirect('dashboard');
 }
 
 public function index(){
+	$this->permiso->verify_access( '"+@plural+"', 'view');
 	//Pagination
 	$per_page = 4;
 	$page = $this->uri->segment(3);
@@ -56,27 +59,28 @@ public function index(){
 
 //detail
 public function detail(){
-
-$data['title'] = '"+@singular+"';
-$data['content'] = 'control/"+@plural+"/detail';
-$data['menu'] = 'control/"+@plural+"/menu_"+@singular+"';
-$data['query'] = $this->"+@singular+"->get_record($this->uri->segment(4));
-$this->load->view('control/control_layout', $data);
+	$this->permiso->verify_access( '"+@plural+"', 'view');
+	$data['title'] = '"+@singular+"';
+	$data['content'] = 'control/"+@plural+"/detail';
+	$data['menu'] = 'control/"+@plural+"/menu_"+@singular+"';
+	$data['query'] = $this->"+@singular+"->get_record($this->uri->segment(4));
+	$this->load->view('control/control_layout', $data);
 }
 
 
 //new
 public function form_new(){
-$this->load->helper('form');
-$data['title'] = 'Nuevo "+@singular+"';
-$data['content'] = 'control/"+@plural+"/new_"+@singular+"';
-$data['menu'] = 'control/"+@plural+"/menu_"+@singular+"';
-$this->load->view('control/control_layout', $data);
+	$this->permiso->verify_access( '"+@plural+"', 'create');
+	$this->load->helper('form');
+	$data['title'] = 'Nuevo "+@singular+"';
+	$data['content'] = 'control/"+@plural+"/new_"+@singular+"';
+	$data['menu'] = 'control/"+@plural+"/menu_"+@singular+"';
+	$this->load->view('control/control_layout', $data);
 }
 
 //create
 public function create(){
-
+	$this->permiso->verify_access( '"+@plural+"', 'create');
 	$this->load->helper('form');
 	$this->load->library('form_validation');"
 
@@ -147,6 +151,7 @@ controller_file <<");
 
 //edit
 public function editar(){
+	$this->permiso->verify_access( '"+@plural+"', 'edit');
 	$this->load->helper('form');
 	$data['title']= 'Editar "+@singular+"';	
 	$data['content'] = 'control/"+@plural+"/edit_"+@singular+"';
@@ -240,10 +245,16 @@ controller_file <<");
 
 
 public function soft_delete(){
+	$permiso = $this->permiso->verify_access_ajax( '"+@plural+"', 'delete');
+	if(!$permiso){
+		$retorno = array('status' => 3);
+		echo json_encode($retorno);
+		exit;
+	}
 	// 0 Active
 	// 1 Deleted
 	// 2 Draft
-	$id_"+@singular+" = $this->input->post('id"+@singular+"');
+	$id_"+@singular+" = $this->input->post('iditem');
 	if($id_"+@singular+" > 0 && $id_"+@singular+" != ""){
 		$edited"+@singular+" = array(  
 		'status' => 1,
@@ -259,54 +270,7 @@ public function soft_delete(){
 
 
 
-//delete comfirm		
-public function delete_comfirm(){
-	$this->load->helper('form');
-	$data['content'] = 'control/"+@plural+"/comfirm_delete';
-	$data['title'] = 'Eliminar "+@singular+"';
-	$data['menu'] = 'control/"+@plural+"/menu_"+@singular+"';
-	$data['query'] = $data['query'] = $this->"+@singular+"->get_record($this->uri->segment(4));
-	$this->load->view('control/control_layout', $data);
 
-
-}
-
-//delete
-public function delete(){
-
-	$this->load->helper('form');
-	$this->load->library('form_validation');
-
-	$this->form_validation->set_rules('comfirm', 'comfirm', 'required');
-	$this->form_validation->set_message('required','Por favor, confirme para eliminar.');
-
-
-	if ($this->form_validation->run() === FALSE){
-		#validation failed
-		$this->load->helper('form');
-
-		$data['content'] = 'control/"+@plural+"/comfirm_delete';
-		$data['title'] = 'Eliminar "+@singular+"';
-		$data['menu'] = 'control/"+@plural+"/menu_"+@singular+"';
-		$data['query'] = $this->"+@singular+"->get_record($this->input->post('id'));
-		$this->load->view('control/control_layout', $data);
-	}else{
-		#validation passed
-		$this->session->set_flashdata('success', '"+@singular+" eliminado!');
-
-		$prod = $this->"+@singular+"->get_record($this->input->post('id'));
-			$path = 'images-"+@plural+"/'.$prod->filename;
-			if(is_link($path)){
-				unlink($path);
-			}
-		
-
-		$this->"+@singular+"->delete_record();
-		redirect('control/"+@plural+"', 'refresh');
-		
-
-	}
-}
 "
 if @imagenes == "1"
 controller_file <<"

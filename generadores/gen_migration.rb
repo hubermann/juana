@@ -18,6 +18,14 @@ class Migration_Create_#{@plural.capitalize} extends CI_Migration
                     \"type\"                =>        \"INT\",
                     \"constraint\"          =>        1,
  
+                ),
+                \"created_at\"          =>        array(
+                    \"type\"                =>        \"DATETIME\",
+                ),
+
+                \"updated_at\"          =>        array(
+                    \"type\"                =>        \"DATETIME\",
+
                 ),"
 
 @campos_clean.each do |campo|

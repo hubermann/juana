@@ -340,6 +340,9 @@ file_control_layout = "<!DOCTYPE html>
 
 
         <script src=\"http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js\"></script>
+
+        
+        <script src=\"<?php echo base_url('public_folder/js/backend.js'); ?>\"></script>
         <!-- Bootstrap -->
         <script src=\"<?php echo base_url('public_folder/js/bootstrap.js'); ?>\"></script>
         <!-- DATA TABES SCRIPT -->

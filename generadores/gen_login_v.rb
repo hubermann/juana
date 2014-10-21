@@ -61,7 +61,7 @@ controller_dashboard = "<!DOCTYPE html>
     <div class=\"container\">
 <?php 
 $attribute = Array (\"class\"=>\"form-signin\");
-echo form_open(base_url().'dashboard/login',$attribute); ?>
+echo form_open(base_url('dashboard/login'),$attribute); ?>
 
         <h4 class=\"form-signin-heading\">Ok, probemos de acceder!</h4>
         <input type=\"text\" class=\"input-block-level\" placeholder=\"Email\" name=\"email\" value=\"<?php echo set_value('email'); ?>\">

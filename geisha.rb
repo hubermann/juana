@@ -137,7 +137,9 @@ load "generadores/gen_dashboard_c.rb"
 load "generadores/gen_dashboard_m.rb"
 
 #gen migration useradmin
-load "generadores/gen_migration_useradmin.rb"
+load "generadores/gen_migration_usuarios.rb"
+load "generadores/gen_migration_roles.rb"
+load "generadores/gen_migration_permisos.rb"
 
 #carpeta backend
 create_folder("../application/controllers/control")

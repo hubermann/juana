@@ -4,7 +4,7 @@ class Dashboard extends CI_Controller{
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model('useradmins_m');
+		$this->load->model('usuario');
 		$this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->library('session');
@@ -28,14 +28,13 @@ class Dashboard extends CI_Controller{
 	    #Paso validacion
 	    if ($this->form_validation->run()){
 
-		//Coinciden los datos
-		if ($this->useradmins_m->try_login($this->input->post('email'), $this->input->post('password'))){
-			redirect('/control/categorias');
-		}
-	    //no coinciden datos
-		else{
+
+		$access_granted = $this->usuario->check_credentials( $this->input->post('email'), $this->input->post('password') );
+		if($access_granted===FALSE){
 			$this->session->set_flashdata('error', 'No se encuentran usuario con esos datos.');
 			redirect('dashboard/login', 'refresh');
+		}else{
+			redirect('/control/categorias_eventos');
 		}
 
 	}
