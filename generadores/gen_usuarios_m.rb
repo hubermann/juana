@@ -116,7 +116,7 @@ class Usuario extends CI_Model{
 
 ?>"
 
-file_model_dashboard = File.new("../application/models/useradmins_m.php", "w+")
+file_model_dashboard = File.new("../application/models/usuario.php", "w+")
 if file_model_dashboard
    file_model_dashboard.syswrite(model_dashboard)
 else
