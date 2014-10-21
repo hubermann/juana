@@ -45,7 +45,7 @@ class Dashboard extends CI_Controller{
 }
 
 	public function logout(){
-		$this->useradmins_m->logout();
+		$this->usuario->logout();
 		$data['content'] = 'control/login';
 		$this->load->view('control/modal_layout', $data);
 	}
