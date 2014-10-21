@@ -147,12 +147,16 @@ create_folder("../application/controllers/control")
 #carpeta backend
 create_folder("../application/views/control")
 
+#carpeta backend includes
+create_folder("../application/views/control/includes")
+
 #gen login for backend
 load "generadores/gen_login_v.rb"
 #gen modal view for login 
 load "generadores/gen_modal_layout_v.rb"
 #gen modal view control layout 
 load "generadores/gen_control_layout_v.rb"
-
+#gen index page for backend
+load "generadores/gen_index_control.rb"
 
 puts "End | Ahora puede usarse padawan.rb para crear modelos."

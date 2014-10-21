@@ -323,6 +323,8 @@ file_control_layout = "<!DOCTYPE html>
                     </ol>
                 </section>
                 
+                <div id=\"avisos\"></div>
+
                 <!-- Main content -->
                 <section class=\"content\">
                 <?php $this->load->view($content); ?>
@@ -345,6 +347,10 @@ file_control_layout = "<!DOCTYPE html>
         <script src=\"<?php echo base_url('public_folder/js/backend.js'); ?>\"></script>
         <!-- Bootstrap -->
         <script src=\"<?php echo base_url('public_folder/js/bootstrap.js'); ?>\"></script>
+
+        <!-- modal confirm -->
+        <script src=\"<?php echo base_url('public_folder/js/bootbox.min.js'); ?>\"></script>
+
         <!-- DATA TABES SCRIPT -->
         <script src=\"<?php echo base_url('public_folder/js/plugins/datatables/jquery.dataTables.js'); ?>\"></script>
         <script src=\"<?php echo base_url('public_folder/js/plugins/datatables/dataTables.bootstrap.js'); ?>\"></script>

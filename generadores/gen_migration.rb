@@ -30,7 +30,7 @@ class Migration_Create_#{@plural.capitalize} extends CI_Migration
 
 @campos_clean.each do |campo|
 	migration_output <<"
-					\"#{campo}\"    		=>        array(
+		\"#{campo}\"    		=>        array(
                     \"type\"                =>        \"TEXT\",
                     \"constraint\"        	=>        100,
                 ),
