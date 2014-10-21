@@ -35,7 +35,7 @@ class Migration_Create_Roles extends CI_Migration
             \"nombre\"        =>        \"Administrador\"
         );
         //ingresamos el registro en la base de datos
-        $this->db->insert(\"useradmin\", $data_useradmin);
+        $this->db->insert(\"roles\", $data_useradmin);
     }
  
     public function down()

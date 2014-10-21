@@ -255,13 +255,13 @@ public function soft_delete(){
 	// 0 Active
 	// 1 Deleted
 	// 2 Draft
-<<<<<<< HEAD
+
 	$id_"+@singular+" = $this->input->post('iditem');
 	if($id_"+@singular+" > 0 && $id_"+@singular+" != ""){
-=======
+
 	$id_"+@singular+" = $this->input->post('id"+@singular+"');
 	if($id_"+@singular+" > 0 && $id_"+@singular+" != \"\"){
->>>>>>> 072805f4a7a8cc9b38f217787b9a1c51ba6463b3
+
 		$edited"+@singular+" = array(  
 		'status' => 1,
 		);
