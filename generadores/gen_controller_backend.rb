@@ -259,9 +259,6 @@ public function soft_delete(){
 	$id_"+@singular+" = $this->input->post('iditem');
 	if($id_"+@singular+" > 0 && $id_"+@singular+" != ""){
 
-	$id_"+@singular+" = $this->input->post('id"+@singular+"');
-	if($id_"+@singular+" > 0 && $id_"+@singular+" != \"\"){
-
 		$edited"+@singular+" = array(  
 		'status' => 1,
 		);
