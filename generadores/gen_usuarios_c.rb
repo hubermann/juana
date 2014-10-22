@@ -71,15 +71,7 @@ public function form_new(){
 }
 
 
-/*
-public function comprobacion(){
-  $email = $this->input->post('email');
-  $password = $this->input->post('password');
 
-  $access_granted = $this->usuario->check_credentials($email, $password);
-  if($access_granted===FALSE){echo \"Nop <a href=\\"http://hubermann.dev/control/usuarios/login\\">R</a>\"; }else{echo $access_granted;}
-}
-*/
 public function logout(){
   $this->usuario->logout();
 }
