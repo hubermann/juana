@@ -78,7 +78,7 @@ class Modulo extends CI_Model{
 
 ?>"
 
-file_model_modulos = File.new("../application/models/rol.php", "w+")
+file_model_modulos = File.new("../application/models/modulo.php", "w+")
 if file_model_modulos
    file_model_modulos.syswrite(model_modulos)
 else
