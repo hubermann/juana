@@ -132,9 +132,7 @@ end
 
 #gen controller migration
 load "generadores/gen_dashboard_c.rb"
-load "generadores/gen_usuarios_c.rb"
-load "generadores/gen_roles_c.rb"
-load "generadores/gen_permisos_c.rb"
+
 
 #gen model usuarios
 load "generadores/gen_usuarios_m.rb"
@@ -151,6 +149,11 @@ load "generadores/gen_migration_modulos.rb"
 
 #carpeta backend
 create_folder("../application/controllers/control")
+
+#controller para usuarios y login con rol/permisos de usuario
+load "generadores/gen_usuarios_c.rb"
+load "generadores/gen_roles_c.rb"
+load "generadores/gen_permisos_c.rb"
 
 #carpeta backend
 create_folder("../application/views/control")
