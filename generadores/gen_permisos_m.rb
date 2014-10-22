@@ -57,7 +57,7 @@ class Permiso extends CI_Model{
 		// traer role del user
 		$role_user = $this->usuario->check_role_usuario($this->session->userdata('logged_in')['id']);
 
-		if( $role_user < 1 || $role_user == "" ){ 
+		if( $role_user < 1 || $role_user == \"\" ){ 
 			$this->session->set_flashdata('error', 'No tiene acceso a esta opcion.');
 			redirect('/control');  }
 
@@ -84,7 +84,7 @@ class Permiso extends CI_Model{
 		// traer role del user
 		$role_user = $this->usuario->check_role_usuario($id);
 
-		if( $role_user < 1 || $role_user == "" ){ return FALSE; }
+		if( $role_user < 1 || $role_user == \"\" ){ return FALSE; }
 
 		// verificar permisos esa accion para ese rol
 		$this->db->where('role_id' ,$role_user);
