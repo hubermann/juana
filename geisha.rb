@@ -137,11 +137,14 @@ load "generadores/gen_dashboard_c.rb"
 load "generadores/gen_usuarios_m.rb"
 load "generadores/gen_permisos_m.rb"
 load "generadores/gen_roles_m.rb"
+load "generadores/gen_modulos_m.rb"
+
 
 #gen migration useradmin
 load "generadores/gen_migration_usuarios.rb"
 load "generadores/gen_migration_roles.rb"
 load "generadores/gen_migration_permisos.rb"
+load "generadores/gen_migration_modulos.rb"
 
 #carpeta backend
 create_folder("../application/controllers/control")
