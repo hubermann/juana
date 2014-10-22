@@ -18,7 +18,7 @@ class Modulo extends CI_Model{
 	public function get_record($id){
 		$this->db->where('id' ,$id);
 		$this->db->limit(1);
-		$c = $this->db->get('noticias');
+		$c = $this->db->get('modulos');
 
 		return $c->row(); 
 	}
@@ -33,7 +33,7 @@ class Modulo extends CI_Model{
 	
 	//total rows
 	public function count_rows(){ 
-		$this->db->select('id')->where('status', 0)->from('noticias');
+		$this->db->select('id')->where('status', 0)->from('modulos');
 		$query = $this->db->get();
 		return $query->num_rows();
 	}
@@ -41,7 +41,7 @@ class Modulo extends CI_Model{
 
 
 		//add new
-		public function add_record($data){ $this->db->insert('noticias', $data);
+		public function add_record($data){ $this->db->insert('modulos', $data);
 				
 
 	}
@@ -51,7 +51,7 @@ class Modulo extends CI_Model{
 		public function update_record($id, $data){
 
 			$this->db->where('id', $id);
-			$this->db->update('noticias', $data);
+			$this->db->update('modulos', $data);
 
 		}
 
@@ -59,15 +59,15 @@ class Modulo extends CI_Model{
 		public function delete_record(){
 
 			$this->db->where('id', $this->uri->segment(4));
-			$this->db->delete('noticias');
+			$this->db->delete('modulos');
 		}
 
 
 		/*
 		public function traer_nombre($id){
-					$this->db->where('noticias_categoria_id' ,$id);
+					$this->db->where('modulos_categoria_id' ,$id);
 					$this->db->limit(1);
-					$c = $this->db->get('noticias');
+					$c = $this->db->get('modulos');
 
 					return $c->row('nombre'); 
 				}
@@ -75,7 +75,7 @@ class Modulo extends CI_Model{
 		*/
 
 }
-
+ 
 ?>"
 
 file_model_modulos = File.new("../application/models/modulo.php", "w+")

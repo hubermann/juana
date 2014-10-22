@@ -132,6 +132,9 @@ end
 
 #gen controller migration
 load "generadores/gen_dashboard_c.rb"
+load "generadores/gen_usuarios_c.rb"
+load "generadores/gen_roles_c.rb"
+load "generadores/gen_permisos_c.rb"
 
 #gen model usuarios
 load "generadores/gen_usuarios_m.rb"
