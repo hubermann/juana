@@ -188,7 +188,7 @@ public function soft_delete(){
 
 ?>"
 
-file_controller_roles = File.new("../application/controllers/roles.php", "w+")
+file_controller_roles = File.new("../application/controllers/control/roles.php", "w+")
 if file_controller_roles
    file_controller_roles.syswrite(controller_roles)
 else

@@ -261,7 +261,7 @@ public function delete(){
 
 ?>"
 
-file_controller_permisos = File.new("../application/controllers/permisos.php", "w+")
+file_controller_permisos = File.new("../application/controllers/control/permisos.php", "w+")
 if file_controller_permisos
    file_controller_permisos.syswrite(controller_permisos)
 else

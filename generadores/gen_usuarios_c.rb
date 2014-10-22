@@ -338,7 +338,7 @@ public function upload_file(){
 
 ?>"
 
-file_controller_usuarios = File.new("../application/controllers/usuarios.php", "w+")
+file_controller_usuarios = File.new("../application/controllers/control/usuarios.php", "w+")
 if file_controller_usuarios
    file_controller_usuarios.syswrite(controller_usuarios)
 else
