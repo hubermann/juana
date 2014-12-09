@@ -283,7 +283,7 @@ public function upload_file(){
   $exts_humano = array('gif', 'png', 'jpeg', 'jpg');
   $exts_humano = implode(', ',$exts_humano);
   $ext = $_FILES['filename']['type'];
-  #$ext = strtolower($ext);
+  \#$ext = strtolower($ext);
   if(!in_array($ext, $file_extensions_allowed)){
     $exts = implode(', ',$file_extensions_allowed);
 
@@ -300,7 +300,7 @@ public function upload_file(){
     $random = substr(md5(rand()),0,6);
     $name_whitout_whitespaces = str_replace(\" \",\"-\",$_FILES['filename']['name']);
     $imagname=''.$random.'_'.$name_whitout_whitespaces;
-    #$thumbname='tn_'.$imagname;
+    \#$thumbname='tn_'.$imagname;
     $yukle->set_file_name($imagname);
 
 
@@ -308,10 +308,10 @@ public function upload_file(){
 
 
     if($yukle->is_ok()){
-      #$yukle->resize(600,0);
-      #$yukle->set_thumbnail_name('tn_'.$random.'_'.$name_whitout_whitespaces);
-      #$yukle->create_thumbnail();
-      #$yukle->set_thumbnail_size(180, 0);
+      \#$yukle->resize(600,0);
+      \#$yukle->set_thumbnail_name('tn_'.$random.'_'.$name_whitout_whitespaces);
+      \#$yukle->create_thumbnail();
+      \#$yukle->set_thumbnail_size(180, 0);
 
       //UPLOAD ok
       $file['filename'] = $imagname;

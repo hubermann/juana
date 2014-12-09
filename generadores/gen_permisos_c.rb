@@ -157,7 +157,7 @@ public function update(){
 }
 
 public function modif(){
-  #$this->output->enable_profiler(TRUE);
+  
   $role_id = 1;//$this->input->post('role_id');
   $modulo = 1;//$this->input->post('modulo');
   $action = 'view';//$this->input->post('action');
@@ -167,7 +167,7 @@ public function modif(){
 }
 
 public function update_permiso(){
-  #$this->output->enable_profiler(TRUE);
+  
   $role_id = $this->input->post('roleid');
   $modulo = $this->input->post('varmodulo');
   $action = $this->input->post('varaction');

@@ -4,7 +4,7 @@
 #licencia: "Hace lo que se te cante"
 =begin
 
-objetivo: tirar dentro de una carpeta de instalacion de codeigniter y usar este scrip desde consola para la 
+objetivo: tirar dentro de una carpeta de instalacion de codeigniter y usar este scrip desde consola para la
 configuracion de datos basicos + creacion de modelos + vistas + formularios, etc.
 
 =end
@@ -104,11 +104,14 @@ def creator_model(plural,singular,imagenes, campos_clean)
 
 	# VIEWS
 	require "./generadores/gen_views_backend.rb"
-	
+
 	# Ruta para el paginado del modelo
+  check = 1
+  if check == 1
 	routes_file = "../application/config/routes.php"
 	replace_config(routes_file, "/* append */", "$route['control/#{plural}/(:num)'] = 'control/#{plural}/index/$';\n/* append */")
-	
+	ckeck = check = 0
+  end
 
 end
 
@@ -116,21 +119,21 @@ end
 
 def recolector
 	#### MODELO EN PLURAL
-	puts "Nombre del modelo en plural:"  
-	STDOUT.flush  
-	plural = gets.chomp  
+	puts "Nombre del modelo en plural:"
+	STDOUT.flush
+	plural = gets.chomp
 	puts "plural es: " + plural
 
 	#### MODELO EN SINGULAR
-	puts "Nombre del modelo en singular:"  
-	STDOUT.flush  
-	singular = gets.chomp  
+	puts "Nombre del modelo en singular:"
+	STDOUT.flush
+	singular = gets.chomp
 	puts "singular es: " + singular
 
 	#### REQUIERE IMAGENES?
-	puts "El modelo no requiere adjuntos (files/imagenes) = 0 \nEl modelo requiere un adjunto individual por item = 1 \nEl modelo requiere multiple adjuntos = 2"  
-	STDOUT.flush  
-	imagenes = gets.chomp  
+	puts "El modelo no requiere adjuntos (files/imagenes) = 0 \nEl modelo requiere un adjunto individual por item = 1 \nEl modelo requiere multiple adjuntos = 2"
+	STDOUT.flush
+	imagenes = gets.chomp
 	puts "imagenes: " + imagenes
 
 	#### CAMPOS DEL MODELO
@@ -140,8 +143,8 @@ def recolector
 		 puts "Se agregara automaticamente un campo <<filename>> para el adjunto."
 	end
 	#Si requiere mas de un adjunto hacer modelo y controller para tal fin##################
-	STDOUT.flush  
-	campos = gets.chomp  
+	STDOUT.flush
+	campos = gets.chomp
 	listado = campos.split(",")
 
 	campos_clean = Array.new()
