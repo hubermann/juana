@@ -110,7 +110,7 @@ def creator_model(plural,singular,imagenes, campos_clean)
   if check == 1
 	routes_file = "../application/config/routes.php"
 	replace_config(routes_file, "/* append */", "$route['control/#{plural}/(:num)'] = 'control/#{plural}/index/$';\n/* append */")
-	ckeck = check = 0
+	ckeck = check + 1
   end
 
 end
