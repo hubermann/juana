@@ -354,7 +354,7 @@ if @imagenes == "2"
 
 
 	public function add_imagen(){
-
+	$file['msg']='';
 	//adjunto
 	if($_FILES['adjunto']['size'] > 0){
 
